@@ -14,7 +14,7 @@ function game(){
     } else if(question > 50){
       alert('Загаданное число меньше');
       return game();
-    } else if(question != isNumber){
+    } else if(question !== isNumber){
       alert('Введи число!');
       return game();
     } else {
