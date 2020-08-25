@@ -1,41 +1,32 @@
 'use strict';
 
-let isNumber = function(n){
+const isNumber = function(n){
   return !isNaN(parseFloat(n)) && isFinite(n);
 };
 
+const goal = 58;
 confirm('Я хочу сыграть с тобой в игру');
 function game(){
-  let question = prompt('Угадай число от 1 до 100');
+  let question = +prompt('Угадай число от 1 до 100');
   function checkAnswer(){
-    if(question <= 50){
-      alert('Загаданное число больше');
+    switch(true){
+      case !isNumber(question): alert('Введи число!');
       return game();
-    } else if(question > 50){
-      alert('Загаданное число меньше');
+      case question === goal: alert('Вы угадали!');
+        const answer = confirm('игру завершаем?');
+        if(answer === true){
+          return null;
+        }else{
+          game();
+        }
+        break;
+      case question <= 50: alert('Загаданное число больше');
       return game();
-    } else if(!isNumber(question)){
-      alert('Введи число!');
+      case question > 50: alert('Загаданное число меньше');
       return game();
-    } else if(question === false || question === " "){
-      confirm('игру завершаем?');
     }
   return question;
   }
   checkAnswer();
 }
 game();
-
-
-
-
-    // switch(question){
-    //   case (question === isNumber): alert('Введи число!');
-    //   return game();
-    //   case (question <= 50): prompt('Загаданное число больше');
-    //   return game();
-    //   case (question > 50): prompt('Загаданное число меньше');
-    //   return game();
-    //   default: confirm('игру завершаем?');
-    //   break;
-    // }
