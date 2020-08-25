@@ -6,7 +6,7 @@ let isNumber = function(n){
 
 confirm('Я хочу сыграть с тобой в игру');
 function game(){
-  let question = +prompt('Угадай число от 1 до 100');
+  let question = prompt('Угадай число от 1 до 100');
   function checkAnswer(){
     if(question <= 50){
       alert('Загаданное число больше');
@@ -14,12 +14,21 @@ function game(){
     } else if(question > 50){
       alert('Загаданное число меньше');
       return game();
-    } else if(question !== isNumber){
+    } else if(!isNumber(question)){
       alert('Введи число!');
       return game();
-    } else {
+    } else if(question === false || question === " "){
       confirm('игру завершаем?');
     }
+  return question;
+  }
+  checkAnswer();
+}
+game();
+
+
+
+
     // switch(question){
     //   case (question === isNumber): alert('Введи число!');
     //   return game();
@@ -30,7 +39,3 @@ function game(){
     //   default: confirm('игру завершаем?');
     //   break;
     // }
-  }
-  checkAnswer();
-}
-game();
