@@ -14,10 +14,10 @@ function game(){
           if(confirm('Вы угадали!Игру повторяем?')){
             checkAnswer();
           }}else if(+question < goal){
-            alert('Загаданное число меньше');
+            alert('Загаданное число больше');
             checkAnswer();
           }else if(+question > goal){
-            alert('Загаданное число больше');
+            alert('Загаданное число меньше');
             checkAnswer();
           }
     } else{
